@@ -10,7 +10,7 @@ import { format } from "date-fns";
 const sortedPosts = sortPostsByPublishedAt(await getCollection("posts"));
 
 const groupedPosts = Object.groupBy(sortedPosts, (post) =>
-	format(post.data.publishedAt, publishedAtFormat.year),
+  format(post.data.publishedAt, publishedAtFormat.year),
 );
 
 const sortedPostYears = Object.keys(groupedPosts).reverse();

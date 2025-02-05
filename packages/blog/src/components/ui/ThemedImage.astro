@@ -4,15 +4,15 @@ import type { ImageMetadata } from "astro";
 import type { HTMLAttributes } from "astro/types";
 
 export interface Props extends Omit<HTMLAttributes<"img">, "src"> {
-	src: ImageMetadata;
-	srcDark?: ImageMetadata | null;
+  src: ImageMetadata;
+  srcDark?: ImageMetadata | null;
 }
 
 const { srcDark, src, alt, ...rest } = Astro.props;
 
 const optimized = await getImage({ src, format: "webp" });
 const optimizedDark =
-	srcDark && (await getImage({ src: srcDark, format: "webp" }));
+  srcDark && (await getImage({ src: srcDark, format: "webp" }));
 ---
 
 <picture>

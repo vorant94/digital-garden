@@ -10,7 +10,7 @@ import Seo, { type Props as SeoProps } from "@/components/Seo.astro";
 import { getFullTitle } from "@/utils/seo.helpers";
 
 export interface Props extends Omit<SeoProps, "fullTitle"> {
-	title?: string;
+  title?: string;
 }
 
 const { title, description, image, type } = Astro.props;

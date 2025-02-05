@@ -1,8 +1,8 @@
 ---
 import { getEntries } from "astro:content";
 import {
-	type PostModel,
-	sortPostsByPublishedAt,
+  type PostModel,
+  sortPostsByPublishedAt,
 } from "@/utils/content.helpers";
 import PostList from "./PostList.astro";
 import PostListItem from "./PostListItem.astro";
@@ -10,14 +10,14 @@ import StandOut from "./ui/StandOut.astro";
 import Title from "./ui/Title.astro";
 
 export interface Props {
-	post: PostModel;
+  post: PostModel;
 }
 
 const { post } = Astro.props;
 
 const posts = post.data.related
-	? sortPostsByPublishedAt(await getEntries(post.data.related))
-	: [];
+  ? sortPostsByPublishedAt(await getEntries(post.data.related))
+  : [];
 ---
 
 <StandOut class="flex-col">

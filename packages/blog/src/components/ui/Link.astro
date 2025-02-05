@@ -4,14 +4,14 @@ import type { HTMLAttributes } from "astro/types";
 export const linkSizes = ["sm", "md"] as const;
 export type LinkSize = (typeof linkSizes)[number];
 const linkSizeToStyles = {
-	sm: "text-sm font-light",
-	md: "",
+  sm: "text-sm font-light",
+  md: "",
 } as const satisfies Record<LinkSize, string>;
 
 export type Props = Omit<HTMLAttributes<"a">, "href"> & {
-	href: string;
-	size?: LinkSize;
-	isActive?: boolean;
+  href: string;
+  size?: LinkSize;
+  isActive?: boolean;
 };
 
 const { size = "md", class: className, href, isActive, ...rest } = Astro.props;

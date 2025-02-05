@@ -4,37 +4,37 @@ import PostList from "@/components/PostList.astro";
 import PostListItem from "@/components/PostListItem.astro";
 import DefaultLayout from "@/layouts/DefaultLayout.astro";
 import {
-	type PostModel,
-	type TagModel,
-	sortPostsByPublishedAt,
+  type PostModel,
+  type TagModel,
+  sortPostsByPublishedAt,
 } from "@/utils/content.helpers";
 
 export async function getStaticPaths() {
-	const [tags, posts] = await Promise.all([
-		getCollection("tags"),
-		getCollection("posts"),
-	]);
+  const [tags, posts] = await Promise.all([
+    getCollection("tags"),
+    getCollection("posts"),
+  ]);
 
-	return await Promise.all(
-		tags.map(async (tag) => {
-			const tagPosts = sortPostsByPublishedAt(
-				posts.filter(({ data }) => data.tags.find(({ id }) => id === tag.id)),
-			);
+  return await Promise.all(
+    tags.map(async (tag) => {
+      const tagPosts = sortPostsByPublishedAt(
+        posts.filter(({ data }) => data.tags.find(({ id }) => id === tag.id)),
+      );
 
-			return {
-				params: { slug: tag.id },
-				props: {
-					tag,
-					tagPosts,
-				},
-			};
-		}),
-	);
+      return {
+        params: { slug: tag.id },
+        props: {
+          tag,
+          tagPosts,
+        },
+      };
+    }),
+  );
 }
 
 export interface Props {
-	tag: TagModel;
-	tagPosts: Array<PostModel>;
+  tag: TagModel;
+  tagPosts: Array<PostModel>;
 }
 
 const { tag, tagPosts } = Astro.props;

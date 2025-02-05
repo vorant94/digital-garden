@@ -1,27 +1,27 @@
 {
-	"name": "digital-garden",
-	"type": "module",
-	"private": true,
-	"workspaces": [
-		"packages/*"
-	],
-	"scripts": {
-		"tsc": "npm run tsc --workspaces --if-present",
-		"lint:check": "biome check .",
-		"lint:write": "biome check --write .",
-		"lint:write:unsafe": "biome check --write --unsafe .",
-		"prepare": "lefthook install"
-	},
-	"devDependencies": {
-		"@biomejs/biome": "^1.9.4",
-		"lefthook": "^1.10.1",
-		"wrangler": "^3.100.0"
-	},
-	"engines": {
-		"node": ">=22"
-	},
-	"os": [
-		"darwin",
-		"linux"
-	]
+  "name": "digital-garden",
+  "type": "module",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "tsc": "npm run tsc --workspaces --if-present",
+    "lint:check": "biome check .",
+    "lint:write": "biome check --write .",
+    "lint:write:unsafe": "biome check --write --unsafe .",
+    "prepare": "lefthook install"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "lefthook": "^1.10.1",
+    "wrangler": "^3.100.0"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "os": [
+    "darwin",
+    "linux"
+  ]
 }

@@ -4,17 +4,17 @@ import { profile } from "@/globals/profile";
 import type { ImageMetadata } from "astro";
 
 export interface Props {
-	fullTitle: string;
-	description?: string;
-	image?: ImageMetadata;
-	type?: string;
+  fullTitle: string;
+  description?: string;
+  image?: ImageMetadata;
+  type?: string;
 }
 
 const {
-	fullTitle,
-	description = profile.description,
-	image,
-	type = "website",
+  fullTitle,
+  description = profile.description,
+  image,
+  type = "website",
 } = Astro.props;
 
 // biome-ignore lint/style/noNonNullAssertion: we know Astro.site is defined since site is present in config

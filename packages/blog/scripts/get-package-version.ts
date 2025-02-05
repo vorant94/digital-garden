@@ -7,9 +7,9 @@ import fse from "fs-extra";
 import { z } from "zod";
 
 const argsRaw = parseArgs({
-	options: {
-		package: { type: "string", short: "p" },
-	},
+  options: {
+    package: { type: "string", short: "p" },
+  },
 });
 
 const argsSchema = z.object({ package: z.string() });
@@ -17,7 +17,7 @@ const argsSchema = z.object({ package: z.string() });
 const args = argsSchema.parse(argsRaw.values);
 
 const lockfile = await fse.readJSON(
-	path.join(process.cwd(), "../../package-lock.json"),
+  path.join(process.cwd(), "../../package-lock.json"),
 );
 
 console.info(lockfile.packages[`node_modules/${args.package}`].version);
